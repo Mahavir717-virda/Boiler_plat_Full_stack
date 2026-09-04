@@ -8,6 +8,7 @@ import {
   verify_otp,
   SendOtp,
   handleGooglesignin,
+  refreshAccessToken,
 } from "../controller/user.controller.js";
 import { Router } from "express";
 import { verifyjwt } from "../middleware/auth.middleware.js";
@@ -23,5 +24,6 @@ router.route("/verify-otp").post(otpLimiter, verify_otp);
 router.route("/send-otp").post(otpLimiter, SendOtp);
 router.route("/change-password").post(changePassword);
 router.route("/google-auth").post(handleGooglesignin);
+router.route("/refresh-token").post(refreshAccessToken);
 
 export default router;
